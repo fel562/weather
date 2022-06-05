@@ -1,7 +1,7 @@
 //let city = prompt("Enter a city");
 let buttonS = document.querySelector("#buttonS");
 let tempC, tempF, humidity, city;
-const axios = require("axios").default;
+//const axios = require("axios").default;
 let apiKey = "1912f8fc56e75e781c82f4724a74f76d";
 
 let dayToday = new Date();
