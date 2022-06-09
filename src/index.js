@@ -15,9 +15,11 @@ let days = [
   "Friday",
   "Saturday"
 ];
-document.getElementById("dayToday").innerHTML = days[dayToday.getDay()] + ",";
-document.getElementById("timeToday").innerHTML =
-  timeToday.getHours() + ":" + timeToday.getUTCMinutes();
+
+
+document.getElementById("dayToday").innerHTML =  days[dayToday.getDay()]+", ";
+
+document.getElementById("timeToday").innerHTML =  timeToday.getHours() + ":" + timeToday.getUTCMinutes();
 
 document
   .getElementById("cityInput")
