@@ -61,7 +61,11 @@ function goUrl(url) {
     console.log(response.data.main.temp);
      myTemp.innerHTML = tempC;
      let mainimg=document.querySelector("#mainimg");
-   mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   //Question1!!!
+  // mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   //Question1!!!
+    mainimg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+
+
     //mainimg.setAttribute("src", "https://raw.githubusercontent.com/fel562/weather/56e2bd5a9b90cbd211633f869c5a9b94dce6c2d3/images/icons/"+response.data.weather[0].icon+".svg?token=AZPWORRIN752M5CD2HFNYFDCUIM2U");  
    /* let iconDay2=document.querySelector("#iconDay2");
     iconDay2.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
