@@ -61,8 +61,8 @@ function goUrl(url) {
     console.log(response.data.main.temp);
      myTemp.innerHTML = tempC;
      let mainimg=document.querySelector("#mainimg");
-    //mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   
-    mainimg.setAttribute("src", "https://raw.githubusercontent.com/fel562/weather/56e2bd5a9b90cbd211633f869c5a9b94dce6c2d3/images/icons/"+response.data.weather[0].icon+".svg?token=AZPWORRIN752M5CD2HFNYFDCUIM2U");  
+   mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   //Question1!!!
+    //mainimg.setAttribute("src", "https://raw.githubusercontent.com/fel562/weather/56e2bd5a9b90cbd211633f869c5a9b94dce6c2d3/images/icons/"+response.data.weather[0].icon+".svg?token=AZPWORRIN752M5CD2HFNYFDCUIM2U");  
    /* let iconDay2=document.querySelector("#iconDay2");
     iconDay2.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
     let iconDay3=document.querySelector("#iconDay3");
@@ -91,16 +91,16 @@ function goUrl(url) {
 
 let linkFar = document.querySelector("#linkFar");
 let linkCel = document.querySelector("#linkCel");
-//linkFar.classlist.add("active");
+
 function link1() {
   document.getElementById("myTemp").innerHTML = tempC;
- // linkFar.classlist.add("active");
- // linkCel.classlist.remove("active");
+linkFar.classlist.remove("active");   //Question2
+linkCel.classlist.add("active");
 }
 function link2() {
   document.getElementById("myTemp").innerHTML = tempF;
- //  linkCel.classlist.remove("active");
-  
+ linkFar.classlist.add("active");
+linkCel.classlist.remove("active")
 }
 linkCel.addEventListener("click", link1);
 linkFar.addEventListener("click", link2);
