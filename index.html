@@ -18,48 +18,55 @@
  </head>
 
   <body>
-   
-    <div class="container">
-      <div class="row m-3">
-        <div class="col-10"><input type="text" id="cityInput" class="form-control" placeholder="your city"></input></div>
-        <div class="col-1"><button type="button" id="buttonS" class="btn btn-primary myBtn" >search</button></div>
-        <div class="col-1"><button type="button" id="buttonC" class="btn btn-success myBtn" >current</button></div>
-      </div>
-    </div>
+   <div class="wrapper mt-5">
     <div class="container">
       <div class="row">
-        <div class="col-6 m-3"><h1 id="placeToday">Kyiv</h1>
-        <h2><span id="dayToday">Wednesday</span> <span id="timeToday">12:12<span> <br /> 
-          Windy</h2>
-          <h3 id="myTemp">18</h3><span class="degree">
-          <span id="tempCel"><a href="#" id="linkCel">°C</a></span>|
-          <span id="tempFar"><a href="#" id="linkFar">F</a></span>
-        </span>
-          <img class="imgmain" src="images/windy.png">        
-        </div>
-        <div class="col-3 pt-5 myGrey">Precipitation: 79%<br />Wind: 12 km/h</div>
+        <div class="col-8"><input type="text" id="cityInput" class="form-control" placeholder="your city"></input></div>
+        <div class="col-2"><button type="button" id="buttonS" class="btn btn-primary myBtn" >search</button></div>
+        <div class="col-2"><button type="button" id="buttonC" class="btn btn-success myBtn" >current</button></div>
+      </div>
+      <div class="row">
+        <div class="col-8">last update: <span id="dayToday">Wednesday</span> <span id="timeToday">12:12<span> <br />
+            Windy</div>
       </div>
     </div>
-<div class="container">
+    <div class="container">
+      <div class="row  mt-5">
+        <div class="col-8"><h1 id="placeToday">Choose city</h1>
+        <h2><span id="description"></span></h2>
+          <h3 id="myTemp"></h3><span class="degree">
+          <span id="tempCel"><a href="#" id="linkCel" class="active">°C</a></span>|<span id="tempFar"><a href="#" id="linkFar">°F</a></span>
+        </span>
+          <img class="imgmain" id="mainimg" src="images/icons/11d.svg">        
+        </div>
+        <div class="col-4 pt-5 myGrey">Precipitation: <span id="humidity"></span>%<br />Wind: <span id="wind"></span> km/h</div>
+      </div>
+    </div>
+<div class="container mt-5">
   <div class="row">
-    <div class="col">   <img src="images/windy.png" >  <p><span class="day">Thu</span><br />
+    <div class="col">   <img id="iconDay2" src="images/icons/02d.svg" >  <p><span class="day">Thu</span><br />
         <span class="temp">17°</span></p>
         </div>
-    <div class="col"><img src="images/partlyCloudy.png" ><p><span class="day">Fri</span><br />
+    <div class="col"><img id="iconDay3" src="images/icons/04d.svg" ><p><span class="day">Fri</span><br />
       <span class="temp">15°</span></p>
         </div>
-    <div class="col">  <img src="images/sunny.png"><p><span class="day">Sat</span><br />
+    <div class="col">  <img id="iconDay4" src="images/icons/10d.svg"><p><span class="day">Sat</span><br />
       <span class="temp">12°</span></p>
         </div>
-    <div class="col"><img src="images/rainy.png"><p><span class="day">Sun</span><br />
+    <div class="col"><img id="iconDay5" src="images/icons/01d.svg"><p><span class="day">Sun</span><br />
       <span class="temp">16°</span></p>
         </div>
-    <div class="col"><img src="images/partlyCloudy.png"><p><span class="day">Mon</span><br />
+    <div class="col"><img id="iconDay6" src="images/icons/11d.svg"><p><span class="day">Mon</span><br />
       <span class="temp">19°</span></p>
         </div>
   </div>
-<div><a href="https://github.com/fel562/weather">Link to GitHub</a></div>
-</div>
+</div></div>
+<footer><small>This project was coded by <a href="https://www.linkedin.com/in/liubov-shupik-46940016b/" target="_blank"
+    rel="noopener noreferrer">Liubov Shupik</a> and is <a href="https://github.com/fel562/weather" target="_blank"
+    rel="noopener noreferrer">open-sourced on GitHub</a> and <a href="https://felfelfel.netlify.app/"
+    target="_blank" rel="noopener noreferrer">hosted on Netlify</a></small></footer>
+
+
 <script src="src/index.js"></script>
   </body>
 </html>

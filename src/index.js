@@ -1,8 +1,9 @@
 //let city = prompt("Enter a city");
 let buttonS = document.querySelector("#buttonS");
-let tempC, tempF, humidity, city;
+let tempC, tempF, humidity, wind, city, description;
 //const axios = require("axios").default;
 let apiKey = "1912f8fc56e75e781c82f4724a74f76d";
+goUrl("https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid="+apiKey);
 
 let dayToday = new Date();
 let timeToday = new Date();
@@ -18,8 +19,11 @@ let days = [
 
 
 document.getElementById("dayToday").innerHTML =  days[dayToday.getDay()]+", ";
+if (timeToday.getUTCMinutes()<10){
+document.getElementById("timeToday").innerHTML =  timeToday.getHours() + ":0" + timeToday.getUTCMinutes();
+}
+else {document.getElementById("timeToday").innerHTML =  timeToday.getHours() + ":" + timeToday.getUTCMinutes();}
 
-document.getElementById("timeToday").innerHTML =  timeToday.getHours() + ":" + timeToday.getUTCMinutes();
 
 document
   .getElementById("cityInput")
@@ -48,9 +52,28 @@ function goUrl(url) {
     let myTemp = document.querySelector("#myTemp");
     tempC = Math.round(response.data.main.temp);
     tempF = Math.round((tempC * 9) / 5 + 32);
-    humidity = 80.2;
-    myTemp.innerHTML = tempC;
-    alert(
+    humidity = document.querySelector("#humidity");
+    humidity.innerHTML=response.data.main.humidity;
+    wind = document.querySelector("#wind");
+    wind.innerHTML=Math.round(response.data.wind.speed);
+    description=document.querySelector("#description");
+    description.innerHTML=response.data.weather[0].description;
+    console.log(response.data.main.temp);
+     myTemp.innerHTML = tempC;
+     let mainimg=document.querySelector("#mainimg");
+    mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");    
+   /* let iconDay2=document.querySelector("#iconDay2");
+    iconDay2.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
+    let iconDay3=document.querySelector("#iconDay3");
+    iconDay3.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
+    let iconDay4=document.querySelector("#iconDay4");
+    iconDay4.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
+    let iconDay5=document.querySelector("#iconDay5");
+    iconDay5.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
+    let iconDay6=document.querySelector("#iconDay6");
+    iconDay6.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
+   
+  alert(
       "It is currently " +
         tempC +
         "°C (" +
@@ -60,18 +83,23 @@ function goUrl(url) {
         ", with a humidity of " +
         Math.round(humidity) +
         " %"
-    );
+    );*/
   });
   console.log(tempC);
 }
 
 let linkFar = document.querySelector("#linkFar");
 let linkCel = document.querySelector("#linkCel");
+//linkFar.classlist.add("active");
 function link1() {
   document.getElementById("myTemp").innerHTML = tempC;
+ // linkFar.classlist.add("active");
+ // linkCel.classlist.remove("active");
 }
 function link2() {
   document.getElementById("myTemp").innerHTML = tempF;
+ //  linkCel.classlist.remove("active");
+  
 }
 linkCel.addEventListener("click", link1);
 linkFar.addEventListener("click", link2);

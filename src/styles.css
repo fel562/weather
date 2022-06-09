@@ -1,15 +1,27 @@
 h1 {
   font-size: 3em;
 }
-.myGrey {
-  color: grey;
+body{
+  font-size: 0.8em;
+  font-family: "Poppins", sans-serif;
 }
+.wrapper,footer {
+  max-width: 600px;
+  margin:0 auto;
+border-radius: 10px;
+  
+  }
+  .wrapper {background: #00796B;
+    padding: 30px;}
+.myGrey {
+  color: #fbbf24;
+    font-size:1.1em;}
 h2 {
   font-size: 2em;
 }
 h1,
 h2 {
-  color: cornflowerblue;
+  color: #f7fbfb;
 }
 h3 {
   color: black;
@@ -18,20 +30,34 @@ h3 {
   float: left;
 }
 .degree {
-  color: cornflowerblue;
-  font-size: 2em;
+  
+  font-size: 1.5em;
   vertical-align: top;
   float: left;
 }
-a {
-  color: cornflowerblue;
+footer a {
+    color: #2196f3;
+  text-decoration: none;
 }
+a {
+  color: #2196f3;
+  text-decoration: none;
+}
+.active{color: rgb(0, 0, 0);}
+
+
+a:visited {
+  
+}
+a:hover {
+    color: rgb(0, 0, 0);
+  }
 .day {
   font-size: 2em;
-  color: grey;
+      color: #0b0b0b;
 }
 .temp {
-  color: cornflowerblue;
+  color: #ffffff; font-size: 1.1em;;
 }
 p {
   text-align: center;
@@ -43,15 +69,16 @@ img {
 }
 .imgmain {
   float: left;
-  margin-left: 20px;
-  height: 100px;
+width: 170px;
+  height: auto;
+    margin: -40px 0px 0px 10px;
 }
-body {
-  font-family: "Poppins", sans-serif;
-}
-.myBtn {
-  color: #000;
+
+#buttonC {
+  background: #FBBF24;
+  border:#FBBF24
 }
 #buttonS {
-  background: cornflowerblue;
+  background: #2196f3;;
+  border: #2196f3;;
 }
