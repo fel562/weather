@@ -61,8 +61,8 @@ function goUrl(url) {
     console.log(response.data.main.temp);
      myTemp.innerHTML = tempC;
      let mainimg=document.querySelector("#mainimg");
-  // mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   //Question1!!!
-    mainimg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   //Question1!!!
+   // mainimg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);  //this works
 
 
 
