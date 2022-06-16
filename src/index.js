@@ -3,6 +3,7 @@ let buttonS = document.querySelector("#buttonS");
 let tempC, tempF, humidity, wind, city, description;
 //const axios = require("axios").default;
 let apiKey = "1912f8fc56e75e781c82f4724a74f76d";
+
 goUrl("https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid="+apiKey);
 
 let dayToday = new Date();
@@ -56,14 +57,14 @@ function goUrl(url) {
     humidity.innerHTML=response.data.main.humidity;
     wind = document.querySelector("#wind");
     wind.innerHTML=Math.round(response.data.wind.speed);
-    description=document.querySelector("#description");
+    description=document.querySelector("#description");    
     description.innerHTML=response.data.weather[0].description;
     console.log(response.data.main.temp);
      myTemp.innerHTML = tempC;
      let mainimg=document.querySelector("#mainimg");
   mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   //Question1!!!
    // mainimg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);  //this works
-
+   
 
 
     //mainimg.setAttribute("src", "https://raw.githubusercontent.com/fel562/weather/56e2bd5a9b90cbd211633f869c5a9b94dce6c2d3/images/icons/"+response.data.weather[0].icon+".svg?token=AZPWORRIN752M5CD2HFNYFDCUIM2U");  
@@ -103,7 +104,7 @@ linkCel.classlist.add("active");
 }
 function link2() {
   document.getElementById("myTemp").innerHTML = tempF;
- linkFar.classlist.add("active");
+linkFar.classlist.add("active");
 linkCel.classlist.remove("active")
 }
 linkCel.addEventListener("click", link1);
