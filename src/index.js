@@ -69,7 +69,10 @@ function goUrl(url) {
       "src",
       `../images/icons/${response.data.weather[0].icon}.svg`
     ); 
-
+ mainimg.setAttribute(
+      "src",
+      `https://raw.githubusercontent.com/fel562/weather/451b8802ac5eb43a243d99f67c0a6f208c06609d/images/icons/${response.data.weather[0].icon}.svg`
+    ); 
 
     //mainimg.setAttribute("src", "https://raw.githubusercontent.com/fel562/weather/56e2bd5a9b90cbd211633f869c5a9b94dce6c2d3/images/icons/"+response.data.weather[0].icon+".svg?token=AZPWORRIN752M5CD2HFNYFDCUIM2U");  
    /* let iconDay2=document.querySelector("#iconDay2");
