@@ -108,8 +108,8 @@ linkCel.classList.add("active");
 }
 function link2() {
   document.getElementById("myTemp").innerHTML = tempF;
-linkFar.classlist.add("active");
-linkCel.classlist.remove("active")
+linkFar.classList.add("active");
+linkCel.classList.remove("active")
 }
 linkCel.addEventListener("click", link1);
 linkFar.addEventListener("click", link2);
