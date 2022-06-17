@@ -65,14 +65,14 @@ function goUrl(url) {
     // mainimg.setAttribute(      "src",       `images/icons/${response.data.weather[0].icon}.svg`); 
   //mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   //Question1!!!
   // mainimg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);  //this works
-   mainimg.setAttribute(
+   /* mainimg.setAttribute(
       "src",
       `../images/icons/${response.data.weather[0].icon}.svg`
-    ); 
- /*mainimg.setAttribute(
+    ); */
+mainimg.setAttribute(
       "src",
       `https://raw.githubusercontent.com/fel562/weather/451b8802ac5eb43a243d99f67c0a6f208c06609d/images/icons/${response.data.weather[0].icon}.svg`
-    ); */
+    ); 
 
 
 
