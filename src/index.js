@@ -103,8 +103,8 @@ let linkCel = document.querySelector("#linkCel");
 
 function link1() {
   document.getElementById("myTemp").innerHTML = tempC;
-linkFar.classlist.remove("active");   //Question2
-linkCel.classlist.add("active");
+linkFar.classList.remove("active");   //Question2
+linkCel.classList.add("active");
 }
 function link2() {
   document.getElementById("myTemp").innerHTML = tempF;
