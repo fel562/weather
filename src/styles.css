@@ -88,3 +88,6 @@ width: 170px;
   background: #2196f3;;
   border: #2196f3;;
 }
+.invis, .invis a {
+  color:transparent;
+}

@@ -19,6 +19,7 @@ let days = [
 ];
 
 
+
 document.getElementById("dayToday").innerHTML =  days[dayToday.getDay()]+", ";
 if (timeToday.getUTCMinutes()<10){
 document.getElementById("timeToday").innerHTML =  timeToday.getHours() + ":0" + timeToday.getUTCMinutes();
@@ -59,49 +60,27 @@ function goUrl(url) {
     wind.innerHTML=Math.round(response.data.wind.speed);
     description=document.querySelector("#description");    
     description.innerHTML=response.data.weather[0].description;
-    console.log(response.data.main.temp);
-     myTemp.innerHTML = tempC;
-     let mainimg=document.querySelector("#mainimg");
-    // mainimg.setAttribute(      "src",       `images/icons/${response.data.weather[0].icon}.svg`); 
-  //mainimg.setAttribute("src", "images/icons/"+response.data.weather[0].icon+".svg");   //Question1!!!
-  // mainimg.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);  //this works
-   /* mainimg.setAttribute(
-      "src",
-      `../images/icons/${response.data.weather[0].icon}.svg`
-    ); */
-mainimg.setAttribute(
+    myTemp.innerHTML = tempC;
+    let mainimg=document.querySelector("#mainimg");    
+    mainimg.setAttribute(
       "src",
       `https://raw.githubusercontent.com/fel562/weather/451b8802ac5eb43a243d99f67c0a6f208c06609d/images/icons/${response.data.weather[0].icon}.svg`
     ); 
+  let coordLon=response.data.coord.lon;
+  let coordLat=response.data.coord.lat;
+  console.log(coordLon, coordLat);
+  let url2 =
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    coordLat +
+    "&lon=" +
+    coordLon +
+    "&units=metric&appid=" +
+    apiKey;
+  showForecast(url2);
+  }); 
 
 
-
-    //mainimg.setAttribute("src", "https://raw.githubusercontent.com/fel562/weather/56e2bd5a9b90cbd211633f869c5a9b94dce6c2d3/images/icons/"+response.data.weather[0].icon+".svg?token=AZPWORRIN752M5CD2HFNYFDCUIM2U");  
-   /* let iconDay2=document.querySelector("#iconDay2");
-    iconDay2.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
-    let iconDay3=document.querySelector("#iconDay3");
-    iconDay3.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
-    let iconDay4=document.querySelector("#iconDay4");
-    iconDay4.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
-    let iconDay5=document.querySelector("#iconDay5");
-    iconDay5.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
-    let iconDay6=document.querySelector("#iconDay6");
-    iconDay6.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png");
-   
-  alert(
-      "It is currently " +
-        tempC +
-        "°C (" +
-        tempF +
-        "°F) in " +
-        city +
-        ", with a humidity of " +
-        Math.round(humidity) +
-        " %"
-    );*/
-  });
-  console.log(tempC);
-}
+  }
 
 let linkFar = document.querySelector("#linkFar");
 let linkCel = document.querySelector("#linkCel");
@@ -138,11 +117,51 @@ function showPosition(position) {
     long +
     "&units=metric&appid=" +
     apiKey;
-
-  //city = "current";
-  console.log(url);
-  /* let url =
-    "https://api.openweathermap.org/data/2.5/weather?lat=50.3742464&lon=7.2548352&appid=1912f8fc56e75e781c82f4724a74f76d";
-  console.log(url);*/
+ 
+ 
   goUrl(url);
+  
+}
+function showForecast (url){
+  console.log(url);
+axios.get(url).then(function forecastTemp(response) {
+  let forecastDay=response.data.daily;
+  console.log(forecastDay);
+  
+let forecast=document.querySelector("#forecast");
+ let forecastHTML="";
+forecastDay.forEach(function dayShorts(dayShort, index){    
+  if (index<5){
+  let maxTemp=Math.round(dayShort.temp.max);
+  let minTemp=Math.round(dayShort.temp.min);
+  let dayFor = new Date();
+  
+  // "https://raw.githubusercontent.com/fel562/weather/451b8802ac5eb43a243d99f67c0a6f208c06609d/images/icons/${dayShort.weather[0].icon}.svg"
+  //http://openweathermap.org/img/wn/${dayShort.weather[0].icon}@2x.png
+  forecastHTML=forecastHTML+`
+    <div class="col">
+    
+    <p><span class="day">${formatDay(dayShort.dt)}</span><br /><img src="https://raw.githubusercontent.com/fel562/weather/451b8802ac5eb43a243d99f67c0a6f208c06609d/images/icons/${dayShort.weather[0].icon}.svg" > 
+    <span class="tempMax">${maxTemp}°</span><span class="tempMin">${minTemp}°</span></p>
+    </div>`; 
+  console.log(dayShort);
+}
+//${response.data.weather[0].icon}  
+});
+forecast.innerHTML=forecastHTML;
+});}
+
+function formatDay(timestamp){
+  let dayFor=new Date(timestamp*1000);
+  let dayForecast= dayFor.getDay();
+  let daysShorts = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat"
+];
+  return daysShorts[dayForecast];
 }
